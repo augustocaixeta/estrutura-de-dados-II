@@ -25,8 +25,11 @@ struct Queue {
         return start == NULL && end == NULL;
     }
 
-    void push(int value) {
+    int push(int value) {
         Node *n = new Node(value);
+        if (!n) {
+            return 0;
+        }
         if (empty()) {
             start = n;
         } else {
@@ -37,9 +40,9 @@ struct Queue {
         return 1;
     }
 
-    void pop() {
+    int pop() {
         if (empty()) {
-            return;
+            return 0;
         }
         Node *aux = start;
         start = start->next;
@@ -48,9 +51,9 @@ struct Queue {
         return 1;
     }
 
-    void print() {
+    int print() {
         if (empty()) {
-            return;
+            return 0;
         }
         Node *aux = start;
         while (aux != NULL) {
