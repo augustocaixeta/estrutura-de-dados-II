@@ -21,10 +21,12 @@ struct Queue {
         size = 0;
     }
 
+    // O(1)
     int empty() {
         return start == NULL && end == NULL;
     }
 
+    // O(1)
     int push(int value) {
         Node *n = new Node(value);
         if (!n) {
@@ -40,6 +42,7 @@ struct Queue {
         return 1;
     }
 
+    // O(1)
     int pop() {
         if (empty()) {
             return 0;
@@ -51,6 +54,7 @@ struct Queue {
         return 1;
     }
 
+    // O(n)
     int print() {
         if (empty()) {
             return 0;
